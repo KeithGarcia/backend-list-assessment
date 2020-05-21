@@ -5,7 +5,7 @@ Kenzie assignment: List2
 """
 # Your name, plus anyone who helped you with this assignment.
 # Give credit where credit is due.
-__author__ = "???"
+__author__ = "Keith with Ben McKenzie's help"
 
 # Copyright 2010 Google Inc.
 # Licensed under the Apache License, Version 2.0
@@ -28,24 +28,28 @@ __author__ = "???"
 
 
 def remove_adjacent(nums):
-    # your code here
-    return
-
-
-# E. linear_merge
-# Given two lists sorted in increasing order, create and
-# return a merged list of all the elements in sorted order.
-# You may modify the passed in lists.
-# The solution should work in "linear" time, making a single
-# pass of both lists.
-# Hint: Don't use `sort` or `sorted` -- they are not O(n)
-# linear time and the two lists are already provided in
-# ascending sorted order.
+    newlist = []
+    for num in nums:
+        if len(newlist) == 0 or num != newlist[-1]:
+            newlist.append(num)
+    return newlist
+    # E. linear_merge
+    # Given two lists sorted in increasing order, create and
+    # return a merged list of all the elements in sorted order.
+    # You may modify the passed in lists.
+    # The solution should work in "linear" time, making a single
+    # pass of both lists.
+    # Hint: Don't use `sort` or `sorted` -- they are not O(n)
+    # linear time and the two lists are already provided in
+    # ascending sorted order.
 
 
 def linear_merge(list1, list2):
-    # your code here
-    return
+    result = []
+    while list1 and list2:
+        result.append((list1 if list1[-1] > list2[-1] else list2).pop(-1))
+
+    return(result + list1 + list2)[-1::-1]
 
 
 # Provided simple test() function used in main() to print
